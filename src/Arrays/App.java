@@ -13,7 +13,11 @@ public class App {
         System.console() = size;
 
         if (size < 1 | size > 100) {
-            System.out.println("The size has to be within 1 and 100.");
+            System.out.println("Error. The size has to be within 1 and 100.");
+            return;
+        }
+        if (size != int) {
+            System.out.println("Error. The input has to be whole number.");
             return;
         }
 
