@@ -3,7 +3,7 @@ package recursion;
 public class App {
     public static void main(String[] args) {
         //fibonacci
-        //o,1,1,2,3,5,8,13...
+        //0,1,1,2,3,5,8,13...
         int n = 10;
         System.out.printf("The fibo of %d is %d", n, fibo(n));
 
