@@ -17,7 +17,7 @@ public class App {
             }
             data = new int[width][height];
 
-            //give randome numbers to the array
+            //give random numbers to the array
             for(int row=0 ; row< data.length; row++){
                 for(int col=0; col<data[row].length; col++){
                     data[row][col] = -99 +(int)(Math.random() * 199);
