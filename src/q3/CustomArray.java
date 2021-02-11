@@ -111,4 +111,12 @@ public class CustomArray {
         builder.append("]");
         return builder.toString();
     }
+    
+    // Quiz 1
+    public boolean addAll(int[] c) {
+    	if (data[items] == c[items]) return true;
+    	if (c == null) return false;
+    	data[items] = c[items];
+    	return addAll(c);
+    }
 }
