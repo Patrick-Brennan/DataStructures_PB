@@ -1,11 +1,27 @@
 package CustomArrayList;
 
+import java.util.Collection;
+
 public class CustomArray {
     private int [] data = new int[1]; // only grows by doubling size, never shrinks
     private int items = 0; // how many elements do you have.
 
     public int size(){
         return items;
+    }
+
+    public boolean addAll(int[] c) {
+        int numNew = c.length;
+        if (numNew == 0)
+            return false;
+        int[] elementData;
+        final int s;
+        if (numNew > (elementData = this.data).length - (s = items))
+            growStorage();
+        for(int i = 0 ;i< c.length; i++){
+            data[items++] = c[i];
+        }
+        return true;
     }
 
     public void add(int value){

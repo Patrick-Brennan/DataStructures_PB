@@ -27,6 +27,9 @@ public class App {
         int[] slice = array.slice(2, 2);
         System.out.println(java.util.Arrays.toString(slice));
 
+        int[] ddd = new int[]{1,2,3};
+        array.addAll(ddd);
+        System.out.println(array);
 
     }
 }
