@@ -1,9 +1,6 @@
 package hashmap;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 class Person extends Object{
     String name;
@@ -25,6 +22,14 @@ class Person extends Object{
     @Override
     public int hashCode() {
         return Objects.hash(name, age);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\''
+                +
+                '}';
     }
 }
 
@@ -51,8 +56,38 @@ public class App2 {
 
         personAccounts.put(new Person("A"), accounts);
 
+        for(Account acc : accounts){
+
+        }
+
+        String myname = "Reza";
+        var city = "Montreal";
+
+        //var is a keyword for local variable
+        for (var data :  personAccounts.entrySet()){
+            Person p = data.getKey();
+            List<Account> account = data.getValue();
+            System.out.println(p + "has -> " + account.size());
+        }
+
+        for (Map.Entry<Person,List<Account>> data :  personAccounts.entrySet()){
+            Person p = data.getKey();
+            List<Account> account = data.getValue();
+            System.out.println(p + "has -> " + account.size());
+        }
+
+        //HashMap<Person, Map<Account, List<Person>>> map = new HashMap<>();
+
         //hashcollision
         // whenever 2 objects are equals their hashcode needs to be equals
         //whenever 2 objects have the same hashcode, they can be equal or not
+
+        // Do not want duplicate value => HashSet (Set)
+        //If you have lots of insertion => LinkedList
+        //If you do fetch by index=> ArrayList
+        // If you have key and value => HashMap
+        // Count the multithreading => Vector/ArrayList
+
     }
 }
+

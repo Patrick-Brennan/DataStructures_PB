@@ -16,6 +16,8 @@ public class CustomArray {
             return false;
         int[] elementData;
         final int s;
+        //if the free space is less than the size of
+        // the new data
         if (numNew > (elementData = this.data).length - (s = items))
             growStorage();
         for(int i = 0 ;i< c.length; i++){
