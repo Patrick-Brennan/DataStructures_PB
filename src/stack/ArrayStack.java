@@ -79,18 +79,29 @@ public class ArrayStack {
 
     public void push(Employee employee) {
         //check for the resize
+        if(top == stack.length){
+            Employee[] newArray = new Employee[2 * stack.length];
+            System.arraycopy(stack, 0, newArray, 0,  stack.length);
+            //loop is correct too
+            stack = newArray;
+        }
+        stack[top++] = employee;
     }
 
     public Employee pop() {
-        //if it is empty throw EmptyStackException
-        //return and decrease the size
-        return null;
+        if (isEmpty()){
+            throw new EmptyStackException();
+        }
+        Employee employee = stack[--top];
+        stack[top] = null; // pop will remove the element
+        return employee;
     }
 
     public Employee peek() {
-        //if it is empty throw EmptyStackException
-        //return the top of stack
-        return null;
+        if (isEmpty()){
+            throw new EmptyStackException();
+        }
+        return stack[top - 1];
     }
 
     public int size() {
@@ -98,10 +109,12 @@ public class ArrayStack {
     }
 
     public boolean isEmpty() {
-        return top == 0;
+       return top == 0;
     }
 
     public void printStack() {
-
+        for(int i=0 ;i< top ; i++){
+            System.out.println(stack[i]);
+        }
     }
 }

@@ -33,22 +33,52 @@ public class TreeNode {
     }
 
     public TreeNode get(int value){
-        //returns a node based on the value
+        if (data == value){
+            return this;
+        }
+        if (value> data){
+           if (rightChild != null){
+               return rightChild.get(value);
+           }
+        }
+        else{
+            if (leftChild != null){
+                return leftChild.get(value);
+            }
+        }
         return null;
     }
 
     public int min(){
-        //looking for the min value of the tree
-        return 0;
+        if (leftChild == null){
+            return data;
+        }
+        else {
+            return leftChild.min();
+        }
     }
 
     public int max(){
-        //looking for the max value of the tree
-        return 0;
+        if (rightChild == null){
+            return data;
+        }
+        else{
+            return rightChild.max();
+        }
     }
 
     public void traverseInOrder(){
-        //will be used to print the values of the Nodes
+        if (leftChild != null){
+            leftChild.traverseInOrder();
+        }
+        System.out.println("Data is " + data);
+        if (rightChild != null){
+            rightChild.traverseInOrder();
+        }
+    }
+
+    public void traversePostOrder(){
+
     }
 
     public int getData() {
@@ -75,5 +105,13 @@ public class TreeNode {
         this.rightChild = rightChild;
     }
 
-    //DELETING A NODE !!!
+    @Override
+    public String toString() {
+        return "TreeNode{" +
+                "data=" + data +
+                ", leftChild=" + leftChild +
+                ", rightChild=" + rightChild +
+                '}';
+    }
+
 }
